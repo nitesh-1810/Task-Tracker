@@ -9,7 +9,8 @@ function App() {
   useEffect(() => {
     // console.log("App useEffect", task);
     const tasks = JSON.parse(localStorage.getItem("tasks"));
-    setTask(tasks);
+    // setTask(tasks); // localstorage return null value, through error.
+    setTask(tasks === null ? [] : tasks); // use ternary because when first time app render on browser, localstorage return null value, which through error
   }, []);
 
   useEffect(() => {
